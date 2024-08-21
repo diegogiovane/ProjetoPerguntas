@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main(List<String> args) =>	runApp(const PerguntaApp());
+void main(List<String> args) =>	runApp(PerguntaApp());
 
 class PerguntaApp extends StatelessWidget {
-	const PerguntaApp({super.key});
+	PerguntaApp({super.key});
+	final perguntas = [
+		'Qual é sua cor favorita?',
+		'Qual é seu animal favorito?'
+	];
 
 	@override
 	Widget build(BuildContext context) {
@@ -12,7 +16,23 @@ class PerguntaApp extends StatelessWidget {
 				appBar: AppBar(
 					title: const Text('Perguntas'),
 				),
-				body: const Text('Olá Flutetr'),
+				body: Column(
+					children: <Widget>[
+				    	Text(perguntas[0]),
+						const ElevatedButton(
+							onPressed: null,
+							child: Text('Resposta 1')
+						),
+						const ElevatedButton(
+							onPressed: null,
+							child: Text('Resposta 2')
+						),
+						const ElevatedButton(
+							onPressed: null,
+							child: Text('Resposta 3')
+						)
+					],
+				),
 			)
 		);
 	}
