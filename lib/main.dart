@@ -9,8 +9,14 @@ class PerguntaApp extends StatelessWidget {
 		'Qual é seu animal favorito?'
 	];
 
-	void reponder() {
-		print('Pergunta respondida');
+	void responder() {
+		debugPrint('Pergunta respondida #01');
+	}
+
+	void Function() funcaoQueRetornOutraFuncao() {
+		return () {
+			debugPrint('Pergunta respondida #02');
+		};
 	}
 
 	@override
@@ -23,17 +29,23 @@ class PerguntaApp extends StatelessWidget {
 				body: Column(
 					children: <Widget>[
 				    	Text(perguntas[0]),
-						const ElevatedButton(
-							onPressed: reponder(),
-							child: Text('Resposta 1')
+						ElevatedButton(
+							onPressed: responder,
+							child: const Text('Resposta 1')
 						),
-						const ElevatedButton(
-							onPressed: reponder(),
-							child: Text('Resposta 2')
+						ElevatedButton(
+							onPressed: funcaoQueRetornOutraFuncao(),
+							child: const Text('Resposta 2')
 						),
-						const ElevatedButton(
-							onPressed: reponder(),
-							child: Text('Resposta 3')
+						ElevatedButton(
+							onPressed: () {
+								debugPrint('Pergunta respondida #03');
+							},
+							child: const Text('Resposta 3')
+						),
+						ElevatedButton(
+							onPressed: () => debugPrint('Pergunta respondida #04'),
+							child: const Text('Resposta 4')
 						)
 					],
 				),
