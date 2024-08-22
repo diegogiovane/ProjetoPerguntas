@@ -11,8 +11,6 @@ class _PerguntaAppState extends State<PerguntaApp> {
 		setState(() {
 			_perguntaSelecionada++;
 		});
-
-		debugPrint(_perguntaSelecionada.toString());
 	}
 
 	@override
@@ -30,21 +28,9 @@ class _PerguntaAppState extends State<PerguntaApp> {
 				body: Column(
 					children: <Widget>[
 				    	Questao(texto: perguntas[_perguntaSelecionada]),
-						const Resposta(texto: 'Resposta 1'),
-						const Resposta(texto: 'Resposta 2'),
-						const Resposta(texto: 'Resposta 3'),
-						// ElevatedButton(
-						// 	onPressed: _responder,
-						// 	child: const Text('Resposta 1')
-						// ),
-						// ElevatedButton(
-						// 	onPressed: _responder,
-						// 	child: const Text('Resposta 2')
-						// ),
-						// ElevatedButton(
-						// 	onPressed: _responder,
-						// 	child: const Text('Resposta 3')
-						// )
+						Resposta(texto: 'Resposta 1', quandoSelecionado: _responder,),
+						Resposta(texto: 'Resposta 2', quandoSelecionado: _responder,),
+						Resposta(texto: 'Resposta 3', quandoSelecionado: _responder,),
 					],
 				),
 			)
