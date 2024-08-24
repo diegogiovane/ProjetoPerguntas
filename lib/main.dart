@@ -47,7 +47,12 @@ class _PerguntaAppState extends State<PerguntaApp> {
 				    	Questao(texto: _perguntas[_perguntaSelecionada]['texto']),
 						...respostas.map((t) => Resposta(texto: t, quandoSelecionado: _responder))
 					],
-				) : null,
+				) : const Center(
+					child: Text(
+						'Parabéns!',
+						style: TextStyle(fontSize: 28),
+					),
+				),
 			)
 		);
 	}
