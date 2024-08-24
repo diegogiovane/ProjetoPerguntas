@@ -14,7 +14,7 @@ class Questionario extends StatelessWidget {
     final List<Map> perguntas;
     final int perguntaSelecionada;
     final bool temPerguntaSelecionada;
-    final void Function() quandoResponder;
+    final void Function(int) quandoResponder;
 
     @override
     Widget build(BuildContext context) {
@@ -25,7 +25,12 @@ class Questionario extends StatelessWidget {
         return Column(
             children: <Widget>[
                 Questao(texto: perguntas[perguntaSelecionada]['texto']),
-                ...respostas.map((resp) => Resposta(texto: resp['texto'] as String, quandoSelecionado: quandoResponder))
+                ...respostas.map((resp) {
+                    return Resposta(
+                        texto: resp['texto'] as String,
+                        quandoSelecionado: () => quandoResponder(int.parse(resp['pontuacao'].toString())),
+                    );
+                }),
             ],
         );
     }
