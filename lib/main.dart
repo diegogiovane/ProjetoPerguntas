@@ -66,7 +66,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
 						temPerguntaSelecionada: temPerguntaSelecionada,
 						quandoResponder: _responder,
 					)
-					: const Resultado(),
+					: Resultado(pontuacao: _pontuacaoTotal,),
 			)
 		);
 	}
