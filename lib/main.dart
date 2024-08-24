@@ -30,6 +30,12 @@ class _PerguntaAppState extends State<PerguntaApp> {
 			}
 		];
 
+		List<Widget> respostas = [];
+		
+		for (var textoResp in perguntas[_perguntaSelecionada]['respostas']) {
+			respostas.add(Resposta(texto: textoResp, quandoSelecionado: _responder));
+		}
+
 		return MaterialApp(
 			home: Scaffold(
 				appBar: AppBar(
@@ -38,9 +44,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
 				body: Column(
 					children: <Widget>[
 				    	Questao(texto: perguntas[_perguntaSelecionada]['texto']),
-						Resposta(texto: 'Resposta 1', quandoSelecionado: _responder,),
-						Resposta(texto: 'Resposta 2', quandoSelecionado: _responder,),
-						Resposta(texto: 'Resposta 3', quandoSelecionado: _responder,),
+						...respostas
 					],
 				),
 			)
