@@ -31,7 +31,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
 			'respostas': [
 				{'texto':'Maria', 'pontuacao': 5},
 				{'texto':'João', 'pontuacao': 3},
-				{'texto':'Leo', 'pontuacao': 10},
+				{'texto':'Leonardo', 'pontuacao': 10},
 				{'texto':'Pedro', 'pontuacao': 1},
 			]
 		}
@@ -44,8 +44,13 @@ class _PerguntaAppState extends State<PerguntaApp> {
 				_pontuacaoTotal += pontuacao;
 			});
 		}
+	}
 
-		debugPrint(_pontuacaoTotal.toString());
+	void _reiniciarQuestionario() {
+		setState(() {
+			_perguntaSelecionada = 0;
+			_pontuacaoTotal = 0;
+		});
 	}
 
 	bool get temPerguntaSelecionada {
@@ -66,7 +71,10 @@ class _PerguntaAppState extends State<PerguntaApp> {
 						temPerguntaSelecionada: temPerguntaSelecionada,
 						quandoResponder: _responder,
 					)
-					: Resultado(pontuacao: _pontuacaoTotal,),
+					: Resultado(
+						pontuacao: _pontuacaoTotal,
+						quandoReiniciarQuestionario: _reiniciarQuestionario,
+					),
 			)
 		);
 	}
